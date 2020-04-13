@@ -1,0 +1,28 @@
+.footer {
+  width: 100vw;
+  height: 200px;
+  background-color: gray;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#social-icons {
+  text-align: center;
+  text-decoration: none;
+  color: red;
+
+  li {
+    display: inline;
+
+    a {
+      color: black;
+    }
+
+    i {
+      font-size: 30px;
+      margin: 0px 8px;
+    }
+  }
+}

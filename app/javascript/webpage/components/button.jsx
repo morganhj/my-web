@@ -1,21 +1,23 @@
-import React, { useState, useEffect } from 'react';
-
-export function useTabClick(tab) {
-  const [currentTab, setCurrentTab] = useState(null)
-
-  useEffect(() => {
-    function handleClick() {
-      setCurrentTab(tab)
-    }
-  });
-  return currentTab;
-}
+import React, { useContext } from 'react';
+import { TabContext } from './app';
 
 export function Button(props) {
-  const currentTab = useTabClick(props.text)
   const tabId = `tab-${props.text}`;
 
+  const [currentTab, setCurrentTab] = useContext(TabContext);
+
+  let buffer;
+
+  function clickHandle(e) {
+    setCurrentTab(e.target.id);
+  }
+
   return (
-    <div className="button" id={tabId} onClick={handleClick}>{props.text}</div>
+    <div
+    className="button"
+    id={props.text}
+    onClick={clickHandle}>
+    {props.text}
+    </div>
   );
 }
